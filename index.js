@@ -13,8 +13,6 @@ module.exports = app => {
   const Registry = client.Registry
   const register = new Registry()
   const collectDefaultMetrics = client.collectDefaultMetrics
-  
-  // Probe every 5th second.
 
   collectDefaultMetrics({register,
     timeout: 5000,
@@ -52,7 +50,8 @@ module.exports = app => {
     res.send('Counter reset ' + new Date())
   })
 
-  // Ping router
+
+   // Ping router
   router.get('/ping', (req, res) => {
     res.send('pong')
     app.log('pong response')
@@ -99,6 +98,7 @@ module.exports = app => {
       repository_full_name: context.payload.repository.full_name, // repository.full_name
       repository_name: context.payload.repository.name
     }
+
     const duration = new Date(context.payload.check_run.completed_at) - new             Date(context.payload.check_run.started_at)
 
     app.log('observation.action -> ' + observation.action)
