@@ -1,5 +1,8 @@
 {
   "name": "probot-hello",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "version": "1.0.1",
   "description": "A Probot app",
   "author": "Edward Raigosa <wenlock@github.com>",
@@ -29,8 +32,8 @@
     "travis-cli": "^1.0.9"
   },
   "devDependencies": {
+    "jest": "^23.6.0",
     "jsdom": "11.11.0",
-    "jest": "^23.4.2",
     "nodemon": "^1.17.2",
     "smee-client": "^1.0.2",
     "standard": "^10.0.3"
@@ -42,8 +45,5 @@
     "env": [
       "jest"
     ]
-  },
-  "jest": {
-    "testEnvironment": "node"
   }
 }
