@@ -49,7 +49,6 @@ module.exports = app => {
     res.send('Counter reset ' + new Date())
   })
 
-
    // Ping router
   router.get('/ping', (req, res) => {
     res.send('pong')
