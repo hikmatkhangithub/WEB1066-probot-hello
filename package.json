@@ -1,6 +1,7 @@
 {
   "name": "probot-hello",
   "jest": {
+    "verbose": true,
     "testEnvironment": "node"
   },
   "version": "1.0.1",
