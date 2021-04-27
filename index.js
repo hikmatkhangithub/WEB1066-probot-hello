@@ -7,7 +7,7 @@
    const router = app.route('/probot')
 // https://github.com/siimon/prom-client
   // prometheus metrics
-   const client = require('prom-client');
+   const client = require('prom-client')
    const Registry = client.Registry
    const register = new Registry()
    const collectDefaultMetrics = client.collectDefaultMetrics
@@ -25,12 +25,12 @@
      maxAgeSeconds: 60, // 1 minute sliding window
      ageBuckets: 100,   // for 100 builds
      labelNames: [
-       'action',  // action
+     /*   'action',  // action
        'name',
        'check_run_status',
        'check_run_conclusion',
        'repository_full_name',
-       'repository_name'
+       'repository_name' */
      ],
      registers: [register]
    })
