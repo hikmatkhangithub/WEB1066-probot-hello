@@ -2,22 +2,23 @@
  * This is the entry point for your Probot App.
  * @param {import('probot').Application} app - Probot's Application class.
  */
+
+
  module.exports = app => {
   // Get an express router to expose new HTTP endpoints
    const router = app.route('/probot')
 // https://github.com/siimon/prom-client
   // prometheus metrics
    const client = require('prom-client')
+   const collectDefaultMetrics = client.collectDefaultMetrics
    const Registry = client.Registry
    const register = new Registry()
-   const collectDefaultMetrics = client.collectDefaultMetrics
-
-  // Probe every 5th second.
-   collectDefaultMetrics({register,
-     timeout: 5000,
-     prefix: 'default_'
-   })
-
+  
+   // Probe every 5th second.
+  collectDefaultMetrics({register,
+    timeout: 5000,
+    prefix: 'default_'
+  });
   // register metrics on startup
    const prom = new client.Summary({
      name: 'builds_duration_ms',
@@ -25,12 +26,12 @@
      maxAgeSeconds: 60, // 1 minute sliding window
      ageBuckets: 100,   // for 100 builds
      labelNames: [
-     /*   'action',  // action
+       'action',  // action
        'name',
        'check_run_status',
        'check_run_conclusion',
        'repository_full_name',
-       'repository_name' */
+       'repository_name'
      ],
      registers: [register]
    })

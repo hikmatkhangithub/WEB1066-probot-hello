@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "dev": "nodemon --exec \"npm start -- --private-key probot-heroku-new-app.2021-04-13.private-key.pem \"",
-    "start": "probot run ./index.js",
+    "start": "probot run ./index.js ",
     "lint": "standard --fix",
     "test": "jest && standard",
     "coverage": "jest --coverage",
