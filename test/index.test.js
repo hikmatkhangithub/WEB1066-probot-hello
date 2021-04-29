@@ -37,6 +37,7 @@ describe('My Probot app', () => {
     // This test passes if the code in your index.js file calls `context.github.issues.createComment`
     expect(github.issues.createComment).toHaveBeenCalled()
   })
+
   test('process check_run completed event', async () => {
     // Simulates delivery of an issues.opened webhook
     await app.receive({
